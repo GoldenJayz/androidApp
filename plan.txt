@@ -1,0 +1,6 @@
+Create API that hosts all the audio files and fetch them using the React-Native-Track-Player module
+
+
+Auto create cards with the data from the API
+
+Have it hosted on my server
