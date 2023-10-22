@@ -1,6 +1,10 @@
 import * as React from 'react';
 import {Text, View, StyleSheet, ImageBackground, Image, TouchableWithoutFeedback} from 'react-native';
 import MusicPlayer from './MusicPlayer';
+import PlayButton from './PlayButton';
+import TrackPlayer from "react-native-track-player";
+
+
 import * as songData from '../../Data/playlist.json';
 
 interface CardProps {
@@ -17,10 +21,20 @@ interface Song {
 
 const Card: React.FC<CardProps> = ({song}: CardProps) => {
   return (
-    <TouchableWithoutFeedback onPress={() => {
+    <TouchableWithoutFeedback onPress={async () => {
       /* 
         Depending on the card being clicked a different song will play
       */
+
+
+
+    await TrackPlayer.pause();
+    await TrackPlayer.reset();
+    console.log('here')
+    await TrackPlayer.add(song);
+    await TrackPlayer.play();
+     
+     
       console.log('fart')
     }}>
       <View>
@@ -37,13 +51,15 @@ const Card: React.FC<CardProps> = ({song}: CardProps) => {
 
 const styles = StyleSheet.create({
   ImageStyles: {
-    height: 100,
-    width: 100,
+    height: 150,
+    width: 125,
     position: 'relative',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 100,
-    marginLeft: 10
+    marginLeft: 10,
+    marginTop: 10
+
   },
 
   image: {
