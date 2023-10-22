@@ -29,8 +29,8 @@ const Card: React.FC<CardProps> = ({song}: CardProps) => {
 
 const styles = StyleSheet.create({
   ImageStyles: {
-    height: 150,
-    width: 150,
+    height: 100,
+    width: 100,
     position: 'relative',
     justifyContent: 'center',
     alignItems: 'center',
@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
 
   image: {
     position: 'relative',
-    width: 100,
-    height: 100
+    width: 75,
+    height: 75
   }
 });
 
