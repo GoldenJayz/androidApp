@@ -4,7 +4,15 @@ import MusicPlayer from './MusicPlayer';
 import * as songData from '../../Data/playlist.json';
 
 interface CardProps {
-  song: string
+  song: Song;
+}
+
+interface Song {
+  url: string;
+  title: string;
+  artist: string;
+  artwork: string;
+  duration: number;
 }
 
 const Card: React.FC<CardProps> = ({song}: CardProps) => {
@@ -18,9 +26,9 @@ const Card: React.FC<CardProps> = ({song}: CardProps) => {
       <View>
         <ImageBackground style={styles.ImageStyles} source={require('../../Data/Images/box.png')}>
           <Image style={styles.image} source={{
-            uri: 'https://rntp.dev/example/Longing.jpeg'
+            uri: song.artwork
           }} />
-          <Text>{ song }</Text>
+          <Text>{ song.title }</Text>
         </ImageBackground>
       </View>
     </TouchableWithoutFeedback>
@@ -34,7 +42,8 @@ const styles = StyleSheet.create({
     position: 'relative',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 100
+    borderRadius: 100,
+    marginLeft: 10
   },
 
   image: {

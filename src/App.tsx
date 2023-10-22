@@ -20,13 +20,7 @@ import Card from "./Components/MusicPlayer/Card";
 // UseEffect for when the app loads it grabs all the songs and asynchronously adds all the songs. Fetches from API to see what songs are availible
 // Use the components state in order to store the song data
 
-interface song {
-  url: string;
-  title: string;
-  artist: string;
-  artwork: string;
-  duration: number;
-}
+
 
 const App: () => JSX.Element = () => {
   let [data, setData]: any = React.useState();
@@ -51,7 +45,7 @@ const App: () => JSX.Element = () => {
 
   return (
     <View style={styles.body}>
-      {loading ? (<Text>loading</Text>) : <FlatList data={data} renderItem={({item}) => <Card song={item.title} />} numColumns={3}  />}
+      {loading ? (<Text>loading</Text>) : <FlatList data={data} renderItem={({item}) => <Card song={item} />} numColumns={3}  />}
 
     </View>
   );
@@ -63,6 +57,8 @@ const styles = StyleSheet.create({
   body: {
     backgroundColor: "#121212",
     height: "100%",
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 
   container: {
