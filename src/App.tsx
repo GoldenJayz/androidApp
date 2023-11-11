@@ -28,7 +28,7 @@ const App: () => JSX.Element = () => {
   let [row, setRow]: any = React.useState(0);
 
   const fetchData = async () => {
-    const resp = await fetch("http://192.168.1.17:3000/songs");
+    const resp = await fetch("http://192.168.1.19:3000/songs");
     const data = await resp.json();
     setData(data);
     setLoading(false);
